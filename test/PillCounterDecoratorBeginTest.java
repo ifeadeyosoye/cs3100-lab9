@@ -4,14 +4,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * This class represents the system that is using the pill counter.
- * What this class does is illustrated in a test only so
- * that you can run this. In reality, this usage is
- * embedded deep into a larger system, interfacing with actual
- * conveyer belts that are bottling pills.
+ * ....
  */
-public class PillCounterBeginTest {
-
+public class PillCounterDecoratorBeginTest {
   /**
    * You may think of this as representative of the client
    * of a pill counter. It represents a heavy usage of the
@@ -21,7 +16,7 @@ public class PillCounterBeginTest {
 
   @Test
   public void usage() {
-    PillCounter counter = new LoggingPillCounter();
+    PillCounter counter = new PillCounterDecorator(new LoggingPillCounter());
     boolean result = conveyerBelt(counter);
     assertTrue(result);
   }
